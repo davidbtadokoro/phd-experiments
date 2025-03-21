@@ -25,7 +25,7 @@ version_exists "$from_version" || exit 1
 
 set -e # from now on, exit on any error
 
-mkdir 'output'
+mkdir --parents 'output'
 
 printf '* Analyzing Linux mainline stats from version %s to version %s\n' "$from_version" "$to_version"
 
