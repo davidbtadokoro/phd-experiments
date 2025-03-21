@@ -22,7 +22,7 @@ plt.ylabel("Physical LOC (in millions)")
 plt.title("Physical Lines of Code (LOC) per Linux versions")
 
 # Format y-axis in millions
-plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x/1e6:.1f}M"))
+plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{int(x/1e6):,}M"))
 
 # Improve x-axis readability
 plt.xticks(rotation=45, ha="right")
