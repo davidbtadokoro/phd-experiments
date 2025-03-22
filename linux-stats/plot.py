@@ -78,7 +78,7 @@ plt.ylabel("Number of Commits (in thousands)")
 plt.title("Number of Commits per Linux versions")
 
 # Format y-axis in millions
-plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x/1e3:.1f}k"))
+plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{int(x/1e3):,}k"))
 
 # Adjust y-axis limits for centering effect
 plt.ylim(min(y_values) - margin, max(y_values) + margin)
