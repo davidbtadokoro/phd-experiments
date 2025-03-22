@@ -17,16 +17,20 @@ plt.figure(figsize=(10, 6))
 plt.bar(x_values, y_values, color="skyblue")
 
 # Labels and title
-plt.xlabel("Linux versions")
-plt.ylabel("Physical LOC (in millions)")
-plt.title("Physical Lines of Code (LOC) per Linux versions")
+plt.xlabel("Linux versions", fontsize=14, fontweight='bold')
+plt.ylabel("Physical LOC (in millions)", fontsize=14, fontweight='bold')
+plt.title("Physical Lines of Code (LOC) per Linux versions", fontsize=18, fontweight='bold')
 
 # Format y-axis in millions
 plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{int(x/1e6):,}M"))
 
-# Improve x-axis readability
-plt.xticks(rotation=45, ha="right")
-plt.gca().xaxis.set_major_locator(mticker.MaxNLocator(nbins=10, integer=True))  # Limit number of labels
+# Adjust x and y ticks
+plt.xticks(rotation=45, ha="right", fontsize=12)
+plt.yticks(fontsize=12)
+plt.gca().xaxis.set_major_locator(mticker.MaxNLocator(nbins=11, integer=True))  # Limit number of labels
+
+# Maximize plot area while keeping everything visible
+plt.tight_layout()
 
 # Save the plot as PDF
 plt.savefig("output/phys-loc.pdf", format="pdf", dpi=300)
@@ -45,13 +49,17 @@ plt.figure(figsize=(10, 6))
 plt.bar(x_values, y_values, color="skyblue")
 
 # Labels and title
-plt.xlabel("Linux versions")
-plt.ylabel("N⁰ Maintainers")
-plt.title("Number of Maintainers per Linux versions")
+plt.xlabel("Linux versions", fontsize=14, fontweight='bold')
+plt.ylabel("N⁰ Maintainers", fontsize=14, fontweight='bold')
+plt.title("Number of Maintainers per Linux versions", fontsize=18, fontweight='bold')
 
-# Improve x-axis readability
-plt.xticks(rotation=45, ha="right")
-plt.gca().xaxis.set_major_locator(mticker.MaxNLocator(nbins=10, integer=True))  # Limit number of labels
+# Adjust x and y ticks
+plt.xticks(rotation=45, ha="right", fontsize=12)
+plt.yticks(fontsize=12)
+plt.gca().xaxis.set_major_locator(mticker.MaxNLocator(nbins=11, integer=True))  # Limit number of labels
+
+# Maximize plot area while keeping everything visible
+plt.tight_layout()
 
 # Save the plot as PDF
 plt.savefig("output/maintainers.pdf", format="pdf", dpi=300)
@@ -59,7 +67,7 @@ plt.savefig("output/maintainers.pdf", format="pdf", dpi=300)
 # Show the plot
 #plt.show()
 
-### NUMBER OF COMMITS PER LINUX VERSIONS ###
+### COMMITS PER LINUX VERSIONS ###
 
 # Extract x and y values
 x_values = df.iloc[:, 0]  # First column as x-axis (categories)
@@ -73,9 +81,9 @@ plt.figure(figsize=(10, 6))
 plt.bar(x_values, y_values, color="skyblue")
 
 # Labels and title
-plt.xlabel("Linux versions")
-plt.ylabel("Number of Commits (in thousands)")
-plt.title("Number of Commits per Linux versions")
+plt.xlabel("Linux versions", fontsize=14, fontweight='bold')
+plt.ylabel("Commits (in thousands)", fontsize=14, fontweight='bold')
+plt.title("Commits per Linux versions", fontsize=18, fontweight='bold')
 
 # Format y-axis in millions
 plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{int(x/1e3):,}k"))
@@ -83,9 +91,13 @@ plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{int(x/
 # Adjust y-axis limits for centering effect
 plt.ylim(min(y_values) - margin, max(y_values) + margin)
 
-# Improve x-axis readability
-plt.xticks(rotation=45, ha="right")
-plt.gca().xaxis.set_major_locator(mticker.MaxNLocator(nbins=10, integer=True))  # Limit number of labels
+# Adjust x and y ticks
+plt.xticks(rotation=45, ha="right", fontsize=12)
+plt.yticks(fontsize=12)
+plt.gca().xaxis.set_major_locator(mticker.MaxNLocator(nbins=11, integer=True))  # Limit number of labels
+
+# Maximize plot area while keeping everything visible
+plt.tight_layout()
 
 # Save the plot as PDF
 plt.savefig("output/commits.pdf", format="pdf", dpi=300)
