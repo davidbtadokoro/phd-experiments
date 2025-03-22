@@ -1,0 +1,8 @@
+services:
+  linux-stats:
+    build: . # see `Dockerfile` for more details
+    volumes:
+      - "${LINUX_MAINLINE}:/linux-stats/linux-mainline"  # Mount mainline from env var
+      - "./output:/linux-stats/output"  # Mount output directory
+    environment:
+      - LINUX_MAINLINE
