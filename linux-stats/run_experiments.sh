@@ -42,6 +42,11 @@ done
 
 printf '* Data generation to `output/data.csv` successful!\n'
 
+# Activate python venv in case it exists
+if [[ -f '/linux-stats/venv/bin/activate' ]]; then
+    source /linux-stats/venv/bin/activate
+fi
+
 printf '* Generating plots\n'
 python3 plot.py
 
