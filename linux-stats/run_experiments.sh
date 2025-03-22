@@ -43,6 +43,6 @@ done
 printf '* Data generation to `output/data.csv` successful!\n'
 
 printf '* Generating plots\n'
-python plot.py
+python3 plot.py
 
 printf '* Plot generation to `output/{phys-loc,maintainers,commits}.pdf` successful!\n'
