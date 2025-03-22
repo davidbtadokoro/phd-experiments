@@ -14,6 +14,11 @@ mainline="$1"
 from_version="$2"
 to_version="$3"
 
+# In case there is a lock on the mainline, remove it before proceding
+if [[ -f "${mainline}/.git/index.lock" ]]; then
+    rm --force "${mainline}/.git/index.lock" 
+fi
+
 printf '* Preparing Linux mainline for data analysis\n'
 output=$(prepare_mainline)
 if [[ "$?" != 0 ]]; then
